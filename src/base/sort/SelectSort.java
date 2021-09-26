@@ -3,22 +3,19 @@ package base.sort;
 import java.util.Random;
 
 /**
- * 冒泡排序
+ * 直接选择排序
  */
-class BubbleSort {
+public class SelectSort {
     void run(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            boolean flag = false;
-            for (int j = arr.length - 1; j > i; j--) {
-                if (arr[j] < arr[j - 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
-                    flag = true;
-                }
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min])
+                    min = j;
             }
-            if (!flag)
-                return;
+            int temp =arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
         }
     }
 
@@ -28,7 +25,7 @@ class BubbleSort {
         for (int i = 0; i < arr.length; i++) {
             arr[i]=random.nextInt(50);
         }
-        new BubbleSort().run(arr);
+        new SelectSort().run(arr);
         for (int item : arr) {
             System.out.print(item+" ");
         }
