@@ -23,34 +23,34 @@ class LinkQueue {
             rear = rear.next;
         }
     }
-    
-    public int deQueue(){
+
+    public int deQueue() {
         LNode node;
-        if(this.rear==null)
+        if (this.rear == null)
             throw new RuntimeException();
-        else 
-            node=this.front;
-        if(this.rear==this.front)
-            this.rear=this.front=null;
-        else 
-            this.front=this.front.next;
+        else
+            node = this.front;
+        if (this.rear == this.front)
+            this.rear = this.front = null;
+        else
+            this.front = this.front.next;
         return node.data;
     }
 
     public static void main(String[] args) {
         LinkQueue linkQueue = new LinkQueue();
         for (int i = 0; i < 10; i++) {
-            linkQueue.enQueue(i+1);
+            linkQueue.enQueue(i + 1);
         }
         linkQueue.deQueue();
         linkQueue.enQueue(999);
-        while (!linkQueue.isEmpty()){
-            System.out.print(linkQueue.deQueue()+" ");
+        while (!linkQueue.isEmpty()) {
+            System.out.print(linkQueue.deQueue() + " ");
         }
     }
 
 
-    static class LNode {
+    private class LNode {
         int data;
         LNode next;
     }
