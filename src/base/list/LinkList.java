@@ -16,14 +16,14 @@ class LinkList {
     }
 
     public int delete(int index) {
-        if (head.next == null || index < 0) throw new RuntimeException();
+        if (head.next == null || index < 1) throw new RuntimeException();
         LNode temp = head;
-        int p = 0;
-        while (temp.next != null && p < index) {
+        int p = 1;
+        while (temp != null && p < index) {
             temp = temp.next;
             p++;
         }
-        if (temp.next == null && p >= index) {
+        if (temp == null || p > index) {
             throw new RuntimeException();
         }
         LNode node = temp.next;
@@ -32,14 +32,14 @@ class LinkList {
     }
 
     public void insert(int index, int e) {
-        if (index < 0) throw new RuntimeException();
-        int p = 0;
+        if (index < 1) throw new RuntimeException();
+        int p = 1;
         LNode temp = head;
         while (temp != null && p < index) {
             temp = temp.next;
             p++;
         }
-        if (temp == null && p >= index) {
+        if (temp == null || p > index) {
             throw new RuntimeException();
         }
         LNode lNode = new LNode();
