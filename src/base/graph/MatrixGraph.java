@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class MatrixGraph {
     //最大顶点数
-    private final static int MAX_VEX = 10;
+    private final static int MAX_VEX = 100;
     private final static int INFINITY = 65535;
     //顶点表
     char[] vexs;
