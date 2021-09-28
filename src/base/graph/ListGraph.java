@@ -31,13 +31,14 @@ public class ListGraph {
         System.out.print("请输入边数：");
         this.numEdges = scanner.nextInt();
         this.adjList=new VertexNode[numVertexes];
-        //初始化边表
+        //初始化顶点表
         for (int i = 0; i < numVertexes; i++) {
             this.adjList[i]=new VertexNode();
         }
-        //建立边表
+        System.out.println("请输入数据，用,隔开");
+        String[] s = scanner.next().split(",");
         for (int i = 0; i < numVertexes; i++) {
-            this.adjList[i].data=scanner.next().charAt(0);
+            this.adjList[i].data=s[i].charAt(0);
             //边表置空
             this.adjList[i].first=null;
         }

@@ -23,9 +23,11 @@ public class MatrixGraph {
         this.numVertexes=scanner.nextInt();
         System.out.print("请输入边数：");
         this.numEdges=scanner.nextInt();
+        System.out.println("请输入顶点数据，用,隔开");
+        String[] s = scanner.next().split(",");
         //建立顶点表
         for (int i = 0; i < numVertexes; i++) {
-            this.vexs[i]=scanner.next().charAt(0);
+            this.vexs[i]=s[i].charAt(0);
         }
         //初始化为无穷
         for (int i = 0; i < numVertexes; i++) {
