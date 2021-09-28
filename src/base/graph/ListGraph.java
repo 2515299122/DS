@@ -64,16 +64,44 @@ public class ListGraph {
         }
     }
 
+    //    ========================      深度优先遍历开始    ==========================
+    boolean[] flags;
+    private void DFS(int index) {
+        flags[index]=true;
+        System.out.print(this.adjList[index].data+" ");
+        //遍历该节点的未访问的边结点
+        //获得首个结点
+        EdgeNode node=this.adjList[index].first;
+        while (node!=null){
+            //若没有访问过，递归访问
+            if(!flags[node.adjvex]){
+                DFS(node.adjvex);
+            }
+            //访问过则访问下一个邻边结点
+            node=node.next;
+        }
+    }
+
+    public void DFSTraverse(){
+        this.flags=new boolean[numVertexes];
+        for (int i = 0; i < numVertexes; i++) {
+            if(!flags[i])
+                DFS(i);
+        }
+    }
+//    ========================      深度优先遍历结束    ==========================
+
     public static void main(String[] args) {
         ListGraph listGraph = new ListGraph();
         listGraph.createGraph();
         for (int i = 0; i < listGraph.numVertexes; i++) {
             EdgeNode temp=listGraph.adjList[i].first;
             while (temp!=null){
-                System.out.printf("%4d  ",temp.adjvex);
+                System.out.printf("%c  ",listGraph.adjList[temp.adjvex].data);
                 temp=temp.next;
             }
             System.out.println();
         }
+        listGraph.DFSTraverse();
     }
 }
