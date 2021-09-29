@@ -1,6 +1,6 @@
-package leetcode;
+package leetcode._21;
 
-class ListNode {
+public class ListNode {
     int val;
     ListNode next;
 
